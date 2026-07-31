@@ -1,0 +1,1075 @@
+:root {
+    --cmu-red: #c41230;
+    --red-dark: #8f1125;
+    --ink: #202426;
+    --muted: #687076;
+    --navy: #1f2c3d;
+    --line: #dfe2e3;
+    --paper: #ffffff;
+    --ground: #eef1f2;
+    --observe: #f8e9ec;
+    --sense: #eaf2f5;
+    --decide: #f3efe5;
+    --verify: #e9f1ed;
+    --font-anthropic-sans: "Styrene B", "Styrene A", "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-anthropic-display: "Copernicus", "Tiempos Text", "Source Serif 4", Georgia, serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-anthropic-sans);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    padding: 22px 16px 34px;
+}
+
+#workspaceFrame {
+    display: grid;
+    width: min(100%, 1460px);
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 1120px) minmax(280px, 320px);
+    align-items: start;
+    gap: 18px;
+}
+
+#lessonColumn {
+    min-width: 0;
+}
+
+#lessonShell,
+#tutorTools {
+    width: 100%;
+}
+
+.hero {
+    display: grid;
+    min-height: 270px;
+    overflow: hidden;
+    background: var(--navy);
+    border-radius: 18px;
+    grid-template-columns: 72px minmax(0, 1fr) 260px;
+    align-items: stretch;
+}
+
+.heroMark {
+    display: flex;
+    background: var(--cmu-red);
+    color: #fff;
+    font-family: var(--font-anthropic-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.22em;
+}
+
+.heroCopy {
+    align-self: center;
+    padding: 34px 38px;
+}
+
+.eyebrow {
+    color: #f2a9b5;
+    font-size: 0.69rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.hero h1 {
+    margin: 7px 0 8px;
+    color: #fff;
+    font-family: var(--font-anthropic-display);
+    font-size: clamp(2.45rem, 5vw, 4rem);
+    line-height: 1;
+}
+
+.heroCopy > p {
+    max-width: 680px;
+    margin: 0;
+    color: #c9d0d7;
+}
+
+.heroPath {
+    display: flex;
+    margin-top: 22px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.heroPath span {
+    color: #fff;
+    font-size: 0.73rem;
+    font-weight: 600;
+}
+
+.heroPath i {
+    width: 28px;
+    height: 1px;
+    background: #728092;
+}
+
+.robotStage {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    background: linear-gradient(150deg, #f8e4e8, #d7dde2);
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.robotStage img {
+    width: 205px;
+    height: 246px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 12px rgba(17, 22, 28, 0.25));
+}
+
+.robotStage span {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 5px 8px;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 4px;
+    color: var(--red-dark);
+    font-size: 0.59rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+}
+
+.instructionPanel {
+    margin: 14px 0 12px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--cmu-red);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(25, 31, 36, 0.04);
+}
+
+.instructionHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.instructionHeader span {
+    color: var(--cmu-red);
+    font-size: 0.61rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.instructionHeader h2 {
+    margin: 0;
+    font-family: var(--font-anthropic-display);
+    font-size: 1.55rem;
+}
+
+.instructionLead {
+    margin: 4px 0 15px;
+    color: #4e565a;
+    font-size: 0.84rem;
+}
+
+.instructionGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+    gap: 16px;
+}
+
+.instructionGrid h3 {
+    margin: 0 0 7px;
+    color: var(--navy);
+    font-size: 0.75rem;
+}
+
+.learningGoals {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.learningGoals li {
+    position: relative;
+    padding: 9px 10px 9px 24px;
+    background: #f5f6f6;
+    border-radius: 7px;
+    color: #555d61;
+    font-size: 0.7rem;
+}
+
+.learningGoals li::before {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    color: var(--cmu-red);
+    content: "→";
+    font-weight: 700;
+}
+
+.instructionHowTo {
+    padding: 12px;
+    background: var(--navy);
+    border-radius: 9px;
+}
+
+.instructionHowTo h3 {
+    color: #f2a9b5;
+}
+
+.instructionHowTo p {
+    margin: 0;
+    color: #d0d6dc;
+    font-size: 0.7rem;
+}
+
+.instructionHowTo strong {
+    color: #fff;
+}
+
+.labNotice {
+    display: flex;
+    margin: 12px 0 18px;
+    padding: 12px 16px;
+    background: #fff;
+    border-left: 4px solid var(--cmu-red);
+    border-radius: 7px;
+    box-shadow: 0 1px 2px rgba(25, 31, 36, 0.05);
+    align-items: baseline;
+    gap: 12px;
+}
+
+.labNotice strong {
+    flex: 0 0 auto;
+    color: var(--cmu-red);
+    font-size: 0.77rem;
+}
+
+.labNotice span {
+    color: var(--muted);
+    font-size: 0.77rem;
+}
+
+.phaseBlock {
+    margin-bottom: 18px;
+    padding: 18px;
+    border-radius: 15px;
+}
+
+.phaseObserve {
+    background: var(--observe);
+}
+
+.phaseSense {
+    background: var(--sense);
+}
+
+.phaseDecide {
+    background: var(--decide);
+}
+
+.phaseVerify {
+    background: var(--verify);
+}
+
+.phaseHeader {
+    display: flex;
+    margin-bottom: 14px;
+    align-items: center;
+    gap: 12px;
+}
+
+.phaseIndex {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    background: var(--navy);
+    border-radius: 11px;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+}
+
+.phaseHeader h2 {
+    margin: 0;
+    font-family: var(--font-anthropic-display);
+    font-size: 1.55rem;
+    line-height: 1.1;
+}
+
+.phaseHeader p {
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+.phaseGrid {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 12px;
+}
+
+.threeUp {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.questionColumn {
+    display: grid;
+    gap: 12px;
+}
+
+.questionCard,
+.verificationBoard {
+    min-width: 0;
+    background: var(--paper);
+    border: 1px solid rgba(76, 82, 86, 0.15);
+    border-radius: 11px;
+    box-shadow: 0 1px 2px rgba(25, 31, 36, 0.04);
+}
+
+.questionCard {
+    padding: 18px;
+}
+
+.questionMeta {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    gap: 8px;
+}
+
+.questionMeta span {
+    display: flex;
+    width: 29px;
+    height: 25px;
+    background: var(--cmu-red);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.66rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+}
+
+.questionMeta b {
+    color: #7a7e81;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.questionCard h3,
+.verificationBoard h3 {
+    margin: 0 0 14px;
+    font-size: 0.91rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.fullControl {
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    background: #fff;
+    border: 1px solid #b8bec1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.8rem;
+}
+
+.codeControl {
+    font-family: Consolas, "Liberation Mono", monospace;
+    font-size: 0.72rem;
+}
+
+.optionStack {
+    display: grid;
+    gap: 7px;
+}
+
+.optionStack .CTATRadioButton {
+    width: 100%;
+    min-height: 39px;
+    padding: 8px 10px;
+    background: #fafbfb;
+    border: 1px solid #d9dddf;
+    border-radius: 6px;
+    color: #303538;
+    font-family: inherit;
+    font-size: 0.8rem;
+}
+
+.optionStack .CTATRadioButton:hover {
+    background: #fff5f6;
+    border-color: #d7a6ae;
+}
+
+.compactOptions {
+    gap: 6px;
+}
+
+.compactOptions .CTATRadioButton {
+    min-height: 37px;
+}
+
+.fieldNote {
+    margin: 10px 0 0;
+    color: #7c8184;
+    font-size: 0.69rem;
+}
+
+.sensorConsole {
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+.sensorConsole h3,
+.sensorConsole .questionMeta b {
+    color: #fff;
+}
+
+.sensorConsole .fieldNote {
+    color: #adb7c2;
+}
+
+.angleRows {
+    display: grid;
+    gap: 7px;
+}
+
+.angleRow,
+.postReading {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 8px;
+}
+
+.angleRow {
+    padding: 8px 9px;
+    background: #2d3c50;
+    border-radius: 7px;
+}
+
+.angleRow label {
+    display: flex;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    background: #526074;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+}
+
+.pitchRow {
+    background: #472a34;
+}
+
+.pitchRow label {
+    background: var(--cmu-red);
+}
+
+.angleRow span {
+    color: #cbd2d9;
+    font-size: 0.7rem;
+}
+
+.angleInput {
+    width: 105px;
+    min-width: 70px;
+    height: 38px;
+    background: #fff;
+    border: 1px solid #aeb5b9;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.88rem;
+}
+
+.decisionFlow {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) 24px minmax(0, 0.9fr) 24px minmax(0, 0.9fr) 24px minmax(0, 1.1fr);
+    align-items: stretch;
+}
+
+.flowCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.flowCard .fullControl {
+    margin-top: auto;
+}
+
+.flowArrow {
+    display: flex;
+    color: #9c8e6c;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionCard {
+    border-top: 3px solid var(--cmu-red);
+}
+
+.verificationBoard {
+    display: grid;
+    padding: 18px;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 15px;
+}
+
+.verifyMeasure,
+.verifyDecision {
+    padding: 15px;
+    background: #f8faf9;
+    border: 1px solid #dfe6e2;
+    border-radius: 9px;
+}
+
+.postReading label {
+    color: #4f5954;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.postReading span {
+    color: var(--muted);
+}
+
+.horizontalOptions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.coachPanel {
+    display: grid;
+    padding: 16px;
+    background: var(--navy);
+    border-radius: 10px;
+    grid-column: 1 / -1;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+}
+
+.coachBadge {
+    align-self: start;
+    padding: 6px 8px;
+    background: var(--cmu-red);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.59rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.coachCopy h3 {
+    margin: 0 0 3px;
+    color: #fff;
+}
+
+.coachCopy p {
+    margin: 0 0 10px;
+    color: #b9c3cd;
+    font-size: 0.71rem;
+}
+
+.coachInput {
+    width: 100%;
+    height: 44px;
+    padding: 9px 11px;
+    background: #fff;
+    border: 1px solid #9eabb8;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    grid-column: 1 / -1;
+}
+
+.referenceShelf {
+    display: grid;
+    margin-bottom: 18px;
+    gap: 10px;
+}
+
+.referencePanel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+}
+
+.referencePanel summary {
+    padding: 13px 15px;
+    color: var(--navy);
+    cursor: pointer;
+    font-size: 0.79rem;
+    font-weight: 700;
+}
+
+.tableWrap,
+.hintArticle {
+    padding: 0 15px 15px;
+}
+
+.tableWrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+}
+
+th,
+td {
+    padding: 8px 9px;
+    border: 1px solid #e1e4e5;
+    text-align: left;
+}
+
+th {
+    background: #f3f5f6;
+    color: #465057;
+}
+
+td code {
+    color: var(--red-dark);
+}
+
+.answerKeyNote {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 0.67rem;
+}
+
+.hintArticle {
+    color: #596066;
+    font-size: 0.77rem;
+}
+
+.hintArticle h3 {
+    margin: 13px 0 4px;
+    color: var(--ink);
+    font-size: 0.8rem;
+}
+
+.hintArticle p,
+.hintArticle ul {
+    margin-top: 5px;
+}
+
+.hintArticle li {
+    margin-bottom: 4px;
+}
+
+#tutorTools {
+    display: flex;
+    padding: 13px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.tutorToolsHeading {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.tutorToolsHeading strong {
+    color: var(--navy);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+
+.tutorToolsHeading span {
+    color: var(--muted);
+    font-size: 0.7rem;
+}
+
+#tutorButtons {
+    display: flex;
+    flex: 0 0 82px;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#hintWindow {
+    flex: 1 1 360px;
+    min-height: 76px;
+}
+
+#skillWindow {
+    flex: 0 1 230px;
+    min-height: 76px;
+}
+
+#robotTutorSidebar {
+    position: sticky;
+    top: 22px;
+    overflow: hidden auto;
+    max-height: calc(100vh - 44px);
+    background: #fff;
+    border: 1px solid #d6d9da;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(26, 34, 43, 0.1);
+}
+
+.twinIdentity {
+    display: grid;
+    padding: 18px;
+    background: var(--navy);
+    color: #fff;
+    grid-template-columns: 82px minmax(0, 1fr);
+    align-items: center;
+    gap: 13px;
+}
+
+.twinPortrait {
+    position: relative;
+    display: flex;
+    width: 82px;
+    height: 82px;
+    overflow: hidden;
+    background: #f3d7dc;
+    border: 2px solid rgba(255, 255, 255, 0.34);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.twinPortrait img {
+    width: 70px;
+    height: 76px;
+    object-fit: contain;
+}
+
+.twinOnlineDot {
+    position: absolute;
+    right: 4px;
+    bottom: 7px;
+    width: 13px;
+    height: 13px;
+    background: #72b992;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.twinEyebrow {
+    color: #f0a4b1;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.twinIdentity h2 {
+    margin: 3px 0 1px;
+    font-family: var(--font-anthropic-display);
+    font-size: 1.45rem;
+    line-height: 1.08;
+}
+
+.twinIdentity p {
+    margin: 0;
+    color: #c7d0d8;
+    font-size: 0.72rem;
+}
+
+.twinSetup {
+    display: grid;
+    padding: 14px 15px;
+    background: #f7f8f8;
+    border-bottom: 1px solid var(--line);
+    gap: 6px;
+}
+
+.twinSetup label {
+    color: #465057;
+    font-size: 0.66rem;
+    font-weight: 700;
+}
+
+.twinSetup input,
+.twinComposer textarea {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #b9bec1;
+    border-radius: 7px;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.74rem;
+    outline: none;
+}
+
+.twinSetup input {
+    height: 37px;
+    padding: 7px 9px;
+}
+
+.twinSetup input:focus,
+.twinComposer textarea:focus {
+    border-color: var(--cmu-red);
+    box-shadow: 0 0 0 2px rgba(196, 18, 48, 0.1);
+}
+
+.twinKeyRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+}
+
+.twinKeyRow button,
+.twinComposer button {
+    border: 0;
+    background: var(--cmu-red);
+    border-radius: 7px;
+    color: #fff;
+    cursor: pointer;
+    font-family: var(--font-anthropic-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.twinKeyRow button {
+    padding: 0 11px;
+}
+
+.twinKeyRow button:hover,
+.twinComposer button:hover {
+    background: var(--red-dark);
+}
+
+.twinKeyRow button:disabled,
+.twinComposer button:disabled {
+    cursor: wait;
+    opacity: 0.58;
+}
+
+.twinStatus {
+    min-height: 30px;
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 0.62rem;
+    line-height: 1.4;
+}
+
+.twinStatus[data-tone="ready"] {
+    color: #317056;
+}
+
+.twinStatus[data-tone="error"] {
+    color: var(--cmu-red);
+}
+
+.twinStatus[data-tone="working"] {
+    color: #7b6025;
+}
+
+.twinMessages {
+    display: flex;
+    min-height: 235px;
+    max-height: 330px;
+    overflow-y: auto;
+    padding: 14px;
+    background: #fcfcfb;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.twinMessage {
+    max-width: 92%;
+    padding: 9px 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+}
+
+.twinMessageRobot {
+    align-self: flex-start;
+    background: #edf0f1;
+    border-bottom-left-radius: 3px;
+    color: #32383c;
+}
+
+.twinMessageUser {
+    align-self: flex-end;
+    background: var(--navy);
+    border-bottom-right-radius: 3px;
+    color: #fff;
+}
+
+.twinMessagePending {
+    color: #767d81;
+    font-style: italic;
+}
+
+.twinMessageError {
+    background: #fae9ec;
+    color: var(--red-dark);
+}
+
+.twinComposer {
+    display: grid;
+    padding: 0 14px 12px;
+    background: #fcfcfb;
+    grid-template-columns: 1fr;
+    gap: 7px;
+}
+
+.twinComposer textarea {
+    min-height: 72px;
+    padding: 9px 10px;
+    resize: vertical;
+}
+
+.twinComposer button {
+    min-height: 38px;
+}
+
+.twinPrivacy {
+    margin: 0;
+    padding: 0 15px 15px;
+    background: #fcfcfb;
+    color: #7b8184;
+    font-size: 0.58rem;
+    line-height: 1.45;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.CTAT--correct {
+    border-color: #4d8b70 !important;
+    box-shadow: 0 0 0 2px rgba(49, 93, 80, 0.12);
+}
+
+.CTAT--incorrect {
+    border-color: var(--cmu-red) !important;
+    box-shadow: 0 0 0 2px rgba(196, 18, 48, 0.1);
+}
+
+@media (max-width: 940px) {
+    .threeUp {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sensorConsole {
+        grid-column: 1 / -1;
+    }
+
+    .decisionFlow {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .verificationBoard {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .instructionGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .flowArrow {
+        display: none;
+    }
+}
+
+@media (max-width: 1250px) {
+    #workspaceFrame {
+        grid-template-columns: 1fr;
+    }
+
+    #robotTutorSidebar {
+        position: static;
+        max-height: none;
+    }
+
+    .twinMessages {
+        min-height: 180px;
+        max-height: 280px;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 10px 8px 22px;
+    }
+
+    .hero {
+        grid-template-columns: 48px 1fr;
+    }
+
+    .heroCopy {
+        padding: 25px 20px;
+    }
+
+    .robotStage {
+        display: none;
+    }
+
+    .phaseGrid,
+    .threeUp,
+    .decisionFlow,
+    .verificationBoard {
+        grid-template-columns: 1fr;
+    }
+
+    .sensorConsole,
+    .coachPanel {
+        grid-column: auto;
+    }
+
+    .phaseBlock {
+        padding: 12px;
+    }
+
+    .horizontalOptions {
+        grid-template-columns: 1fr;
+    }
+
+    .labNotice {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .learningGoals {
+        grid-template-columns: 1fr;
+    }
+}
