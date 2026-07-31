@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AINEX Fall Recovery Lab</title>
+
+    <link rel="stylesheet" href="https://cdn.ctat.cs.cmu.edu/releases/lab/CTAT.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap"
+    >
+    <link rel="stylesheet" href="./Assets/recovery-from-fall-styles-v10.css">
+
+    <script src="https://cdn.ctat.cs.cmu.edu/releases/lab/jquery.min.js"></script>
+    <script src="https://cdn.ctat.cs.cmu.edu/releases/lab/ctat.min.js"></script>
+    <script src="https://cdn.ctat.cs.cmu.edu/releases/lab/ctatloader.js"></script>
+    <script>
+      (function () {
+        "use strict";
+
+        var fallbackQuestionFile =
+          "../FinalBRDs/recovery-from-fall-v10.brd";
+
+        window.RecoveryTutorConfig = {
+          version: "v10",
+          questionFile: fallbackQuestionFile,
+          initialized: false,
+          error: "",
+        };
+
+        window.ctatOnload = function () {
+          var questionFile = fallbackQuestionFile;
+          window.RecoveryTutorConfig.questionFile = questionFile;
+
+          if (typeof window.initTutor !== "function") {
+            window.RecoveryTutorConfig.error =
+              "CTAT initTutor is unavailable.";
+            console.error(window.RecoveryTutorConfig.error);
+            return;
+          }
+
+          window.initTutor({ question_file: questionFile });
+          window.RecoveryTutorConfig.initialized = true;
+          console.info("CTAT behavior graph loaded:", questionFile);
+        };
+      })();
+    </script>
+    <script src="./Assets/robot-digital-twin-v10.js" defer></script>
+  </head>
+      <body>
+<div id="workspaceFrame">
+   <div id="lessonColumn">
+      <div id="lessonShell">
+         <header id="im3lk" class="hero">
+            <div id="izbpu" class="heroMark">
+               <br>
+            </div>
+   <div id="ik4kv" class="heroCopy">
+      <h1 id="i2kgx">
+         Learn Robot Lab            
+      </h1>
+</div>
+   <div class="robotStage">
+      <img src="./Assets/ainex-robot.png" alt="AINEX humanoid robot" id="i1tuh"><span id="i56nw">AiNex Robot</span>
+   </div>
+</header>
+<section aria-labelledby="instructionTitle" id="igyij" class="instructionPanel">
+   <div id="iw8q9" class="instructionHeader">
+      <span id="ii9kk">START HERE</span>
+      <h2 id="instructionTitle">
+         Instructions            
+      </h2>
+</div>
+   <div class="instructionGrid">
+      <div>
+         <h3 id="i2sbl">
+            In this process, you will learn to:                  
+         </h3>
+         <ul class="learningGoals">
+            <li>
+               Think systematically about robot behavior and select a reasonable response.                        
+            </li>
+            <li>
+               Read sensor values, interpret data, and identify the appropriate command.                        
+            </li>
+            <li>
+               Connect dashboard values to the robot's physical condition.                        
+            </li>
+            <li>
+               Direct the robot's action using the diagnosed condition.                        
+            </li>
+</ul>
+</div>
+   <div class="instructionHowTo">
+      <h3>
+         How to work            
+      </h3>
+      <p>
+         Make choices and fill in the blanks using one frozen sensor              snapshot. You will receive feedback after each response. If you              are unsure, select <strong>Hint</strong> for a progressively more              specific tip.                        
+      </p>
+</div>
+</div>
+</section>
+<section id="i22ko" class="labNotice">
+   <strong>Live-data activity</strong><span>          Place the robot in a pose, freeze one sensor snapshot, and use that          same snapshot through Q5-Q9.        </span>
+</section>
+<main>
+   <section class="phaseBlock phaseObserve">
+      <header class="phaseHeader">
+         <div class="phaseIndex">
+            01                  
+         </div>
+         <div>
+            <h2>
+               Observation &amp; IMU knowledge                        
+            </h2>
+</div>
+</header>
+      <div class="phaseGrid">
+         <article id="question1" class="questionCard">
+            <div class="questionMeta">
+               <span>Q1</span><b>Observation</b>
+            </div>
+         <h3>
+            Observe the robot. What is the robot's current pose?                  
+         </h3>
+         <div class="optionStack">
+            <div id="poseStand" class="CTATRadioButton" name="observedPose" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Stand</div>
+            <div id="poseFallFront" class="CTATRadioButton" name="observedPose" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Fall front</div>
+            <div id="poseFallBack" class="CTATRadioButton" name="observedPose" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Fall back</div>
+            <div id="poseLeaningForward" class="CTATRadioButton" name="observedPose" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Leaning forward</div>
+            <div id="poseLeaningBackward" class="CTATRadioButton" name="observedPose" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Leaning backward</div>
+</div>
+</article>
+      <div class="questionColumn">
+         <article id="question2" class="questionCard">
+            <div class="questionMeta">
+               <span>Q2</span><b>IMU knowledge</b>
+            </div>
+         <h3>
+            Which sensor is mainly used to detect whether the robot has fallen?                  
+         </h3>
+         <div id="fallSensor" data-ctat-labels="Select...,Camera,IMU,Battery,Motor encoder" data-ctat-disable-on-correct="true" class="CTATComboBox fullControl"></div>
+</article>
+</div>
+</div>
+</section>
+   <section class="phaseBlock phaseSense">
+      <header class="phaseHeader">
+         <div class="phaseIndex">
+            02                  
+         </div>
+         <div>
+            <h2>
+               Read the sensor stream                        
+            </h2>
+</div>
+</header>
+      <div class="phaseGrid threeUp">
+         <article id="question3" class="questionCard">
+            <div class="questionMeta">
+               <span>Q3</span><b>ROS command</b>
+            </div>
+         <h3>
+            Which command views the IMU data stream in ROS on AINEX?                  
+         </h3>
+         <div id="imuCommand" data-ctat-labels="Select...,rostopic echo /imu_gui,rostopic echo /camera/image_raw,rosnode /imu_gui,rosrun /imu_gui" data-ctat-disable-on-correct="true" class="CTATComboBox fullControl codeControl"></div>
+</article>
+      <article id="question4" class="questionCard">
+         <div class="questionMeta">
+            <span>Q4</span><b>Axis selection</b>
+         </div>
+         <h3>
+            Which IMU axis should be used first to detect a front or back fall?                  
+         </h3>
+         <div class="optionStack compactOptions">
+            <div id="axisX" class="CTATRadioButton" name="axisChoice" data-ctat-tutor="true" data-ctat-disable-on-correct="true">X angle (roll)</div>
+            <div id="axisY" class="CTATRadioButton" name="axisChoice" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Y angle (pitch)</div>
+            <div id="axisZ" class="CTATRadioButton" name="axisChoice" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Z angle (yaw)</div>
+</div>
+</article>
+      <article id="question5" class="questionCard sensorConsole">
+         <div class="questionMeta">
+            <span>Q5</span><b>Frozen snapshot</b>
+         </div>
+         <h3>
+            Freeze one Robot Sensor Viewer snapshot and enter the displayed angles.                  
+         </h3>
+         <div class="angleRows">
+            <div class="angleRow">
+               <label for="snapshotX">X</label>
+               <div id="snapshotX" data-ctat-submit-on-blur="false" data-ctat-disable-on-correct="true" class="CTATTextInput angleInput"></div>
+         <span>°</span>
+      </div>
+         <div class="angleRow pitchRow">
+            <label for="snapshotY">Y</label>
+            <div id="snapshotY" data-ctat-submit-on-blur="false" data-ctat-disable-on-correct="true" class="CTATTextInput angleInput"></div>
+         <span>° pitch</span>
+      </div>
+         <div class="angleRow">
+            <label for="snapshotZ">Z</label>
+            <div id="snapshotZ" data-ctat-submit-on-blur="false" data-ctat-disable-on-correct="true" class="CTATTextInput angleInput"></div>
+         <span>°</span>
+      </div>
+</div>
+         <p class="fieldNote">
+            Enter whole-degree values from one frozen snapshot. The graph                uses Y to choose the next reasoning branch.                                
+         </p>
+</article>
+</div>
+</section>
+   <section class="phaseBlock phaseDecide">
+      <header class="phaseHeader">
+         <div class="phaseIndex">
+            03                  
+         </div>
+         <div>
+            <h2>
+               Classify &amp; act                        
+            </h2>
+</div>
+</header>
+      <div class="decisionFlow">
+         <article id="question6" class="questionCard flowCard">
+            <div class="questionMeta">
+               <span>Q6</span><b>Condition</b>
+            </div>
+         <h3>
+            Which interval contains the Y-axis rotation you recorded?                  
+         </h3>
+<div id="pitchInterval" data-ctat-labels="Select...,Y angle ≤ -90°,-90° < Y angle < -20°,-20° ≤ Y angle ≤ 20°,20° < Y angle                   
+         < 90°,Y angle ≥ 90°" data-ctat-disable-on-correct="true" class="CTATComboBox fullControl"></div>
+</article>
+         <div aria-hidden="true" class="flowArrow">
+            →                  
+         </div>
+         <article id="question7" class="questionCard flowCard">
+            <div class="questionMeta">
+               <span>Q7</span><b>Adapter</b>
+            </div>
+            <h3>
+               Which blackboard key should the adapter write to?                        
+            </h3>
+            <div id="blackboardKey" data-ctat-labels="Select...,robot_state,imu_pitch,fall_flag,recovery_motion" data-ctat-disable-on-correct="true" class="CTATComboBox fullControl codeControl"></div>
+</article>
+         <div aria-hidden="true" class="flowArrow">
+            →                  
+         </div>
+         <article id="question8" class="questionCard flowCard">
+            <div class="questionMeta">
+               <span>Q8</span><b>Blackboard</b>
+            </div>
+            <h3>
+               What value should the adapter write to the blackboard?                        
+            </h3>
+            <div id="blackboardValue" data-ctat-labels="Select...,stand,fall_front,fall_back,leaning_forward,leaning_backward" data-ctat-disable-on-correct="true" class="CTATComboBox fullControl codeControl"></div>
+</article>
+         <div aria-hidden="true" class="flowArrow">
+            →                  
+         </div>
+         <article id="question9" class="questionCard flowCard actionCard">
+            <div class="questionMeta">
+               <span>Q9</span><b>Motion</b>
+            </div>
+            <h3>
+               The blackboard state is the value selected in Q8. Which                recovery motion should the robot execute?                                      
+            </h3>
+            <div id="recoveryAction" data-ctat-labels="Select...,recline_to_stand.d6a,lie_to_stand.d6a,forward_gait.d6a,No action" data-ctat-disable-on-correct="true" class="CTATComboBox fullControl codeControl"></div>
+</article>
+</div>
+</section>
+      <section class="phaseBlock phaseVerify">
+         <header class="phaseHeader">
+            <div class="phaseIndex">
+               04                        
+            </div>
+            <div>
+               <h2>
+                  Verify recovery                              
+               </h2>
+</div>
+</header>
+         <article id="question10" class="verificationBoard">
+            <div class="verifyMeasure">
+               <div class="questionMeta">
+                  <span>Q10</span><b>Post-recovery evidence</b>
+               </div>
+            <h3>
+               Freeze another IMU snapshot and enter the new Y angle.                        
+            </h3>
+            <div class="postReading">
+               <label for="postRecoveryY">Post-recovery Y</label>
+               <div id="postRecoveryY" data-ctat-submit-on-blur="false" data-ctat-disable-on-correct="true" class="CTATTextInput angleInput"></div>
+            <span>°</span>
+         </div>
+</div>
+            <div class="verifyDecision">
+               <h3>
+                  Has the robot recovered successfully?                              
+               </h3>
+               <div class="optionStack horizontalOptions">
+                  <div id="recoveredYes" class="CTATRadioButton" name="recoveryDecision" data-ctat-tutor="true" data-ctat-disable-on-correct="true">Yes — Y is in the stand band</div>
+                  <div id="recoveredNo" class="CTATRadioButton" name="recoveryDecision" data-ctat-tutor="true" data-ctat-disable-on-correct="true">No — Y is outside the stand band</div>
+</div>
+</div>
+            <div class="coachPanel twinPromptCard">
+               <div class="coachBadge">
+                  OPTIONAL TUTOR                              
+               </div>
+            <div class="coachCopy">
+               <h3>
+                  Need help connecting the evidence to the control policy?                              
+               </h3>
+               <p>
+                  Ask the Robot Digital Twin in the sidebar. Its conversation                  does not block or advance the behavior graph.                                              
+               </p>
+</div>
+</div>
+</article>
+</section>
+      <section class="referenceShelf">
+         <details class="referencePanel">
+            <summary id="ihprdm">
+               Answer key — Y angle → robot_state → recovery motion                        
+            </summary>
+            <div class="tableWrap">
+               <table>
+                  <thead>
+                     <tr>
+                        <th>
+                           Y angle (pitch)                                                
+                        </th>
+                        <th>
+                           robot_state                                                
+                        </th>
+                        <th>
+                           Recovery motion                                                
+                        </th>
+</tr>
+</thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           Y ≤ -90°                                                
+                        </td>
+                        <td>
+                           <code>
+                              fall_front                                                      
+                           </code>
+</td>
+                        <td>
+                           <code>
+                              recline_to_stand.d6a                                                      
+                           </code>
+</td>
+</tr>
+                     <tr>
+                        <td>
+                           -90° &lt; Y &lt; -20°                                                
+                        </td>
+                        <td>
+                           <code>
+                              leaning_forward                                                      
+                           </code>
+</td>
+                        <td>
+                           No action                                                
+                        </td>
+</tr>
+                     <tr>
+                        <td>
+                           -20° ≤ Y ≤ 20°                                                
+                        </td>
+                        <td>
+                           <code>
+                              stand                                                      
+                           </code>
+</td>
+                        <td>
+                           No action                                                
+                        </td>
+</tr>
+                     <tr>
+                        <td>
+                           20° &lt; Y &lt; 90°                                                
+                        </td>
+                        <td>
+                           <code>
+                              leaning_backward                                                      
+                           </code>
+</td>
+                        <td>
+                           No action                                                
+                        </td>
+</tr>
+                     <tr>
+                        <td>
+                           Y ≥ 90°                                                
+                        </td>
+                        <td>
+                           <code>
+                              fall_back                                                      
+                           </code>
+</td>
+                        <td>
+                           <code>
+                              lie_to_stand.d6a                                                      
+                           </code>
+</td>
+</tr>
+</tbody>
+</table>
+               <p class="answerKeyNote">
+                  The intervals are mutually exclusive and cover the complete                pitch range without gaps.                                            
+               </p>
+</div>
+</details>
+         <details class="referencePanel driftPanel">
+            <summary>
+               Final hint — the IMU may not return to its starting value                        
+            </summary>
+            <div class="hintArticle">
+               <p>
+                  After a successful recovery, the robot may be visibly standing                even though Y does not return to the number recorded at the                beginning. The standing pose may now read a few degrees away                from the original baseline. In most cases, the robot is fine;                the sensor reading has moved.                                            
+               </p>
+               <h3>
+                  Why it happens                              
+               </h3>
+               <p>
+                  A gyroscope measures angular velocity in degrees per second,                not angle. The reported orientation is obtained by integrating                angular velocity over time. Small bias and noise in every                sample accumulate in that running sum. This growing error is                called gyroscope drift, or integration drift.                                            
+               </p>
+               <p>
+                  A fall can make the error larger. Rotation is fast, and impact                with the ground may briefly saturate the gyroscope. Incorrect                rate samples from those moments remain in the integrated angle                even after the robot stands again.                                            
+               </p>
+               <h3>
+                  What to do                              
+               </h3>
+               <ul>
+                  <li>
+                     Judge recovery by the stand band, -20° ≤ Y ≤ 20°, rather than by matching the original number exactly.                                    
+                  </li>
+                  <li>
+                     Allow about ±2° between snapshots taken close together, and more after several minutes of operation.                                    
+                  </li>
+                  <li>
+                     If the offset keeps growing, hold the standing robot still, re-zero the IMU, and record a new baseline.                                    
+                  </li>
+                  <li>
+                     If drift moves a standing reading into the wrong band—for example, Y = 25°—re-baseline before classifying again.                                    
+                  </li>
+</ul>
+</div>
+</details>
+</section>
+</main>
+</div>
+   <section id="tutorTools" class="HintWidgetRow">
+      <div class="tutorToolsHeading">
+         <strong>Tutor feedback</strong>
+      </div>
+      <div id="tutorButtons" class="HintWidgetButtons">
+         <div id="hintButton" class="CTATHintButton"></div>
+      <div id="done" class="CTATDoneButton"></div>
+</div>
+      <div id="hintWindow" class="CTATHintWindow"></div>
+      <div id="skillWindow" class="CTATSkillWindow"></div>
+</section>
+</div>
+   <aside id="robotTutorSidebar" aria-label="Robot Digital Twin tutor">
+      <div id="i9wevz" class="twinIdentity">
+         <div class="twinPortrait">
+            <img src="./Assets/ainex-robot.png" alt="AINEX Robot Digital Twin"><span aria-hidden="true" class="twinOnlineDot"></span>
+         </div>
+      <div>
+         <div id="i155dj" class="twinEyebrow">
+            ROBOT DIGITAL TWIN                  
+         </div>
+      <h2>
+         Ask me anything!            
+      </h2>
+      <p>
+         I’m your robot’s digital twin.
+      </p>
+</div>
+</div>
+      <div class="twinSetup">
+         <label for="robotTutorApiKey">OpenAI API key</label>
+         <div class="twinKeyRow">
+            <input id="robotTutorApiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-..."><button id="connectRobotTutor" type="button">Connect</button>
+         </div>
+      <label for="robotTutorModel">Model</label><input id="robotTutorModel" type="text" autocomplete="off" spellcheck="false" value="gpt-4o-mini">
+      <p id="robotTutorStatus" class="twinStatus" role="status">
+         Ready. Enter a project API key, then select Connect.
+      </p>
+   </div>
+      <div id="robotTutorMessages" role="log" aria-live="polite" aria-label="Robot tutor conversation" class="twinMessages">
+         <div class="twinMessage twinMessageRobot">
+            Ask me about the IMU, pitch thresholds, ROS commands, the blackboard, recovery actions, or sensor drift.
+         </div>
+      </div>
+      <form id="robotTutorForm" class="twinComposer">
+         <label for="robotTutorQuestion" class="srOnly">Ask the Robot Digital Twin</label><textarea id="robotTutorQuestion" rows="3" placeholder="Ask a question about this lab..."></textarea><button id="askRobotTutor" type="submit">Ask robot</button>
+      </form>
+      <p class="twinPrivacy">
+         Private-test prototype: the key is sent directly to the OpenAI API,
+         kept only in this page session, and never saved by this page. Do not
+         use a shared or production key.
+      </p>
+</aside>
+</div>
+      </body>
+    </html>
+  
