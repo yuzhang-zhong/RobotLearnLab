@@ -4,6 +4,8 @@ RobotLearnLab is an intelligent tutoring system that teaches novice robot operat
 
 The project was developed for the **Intelligent Tutoring System (ITS) track at the CMU 2026 LearnLab Summer School**. It combines a CMU CTAT example-tracing tutor with an optional generative-AI “robot digital twin” that explains the reasoning behind each step without controlling lesson progression or directly commanding the robot.
 
+<!-- TODO: add screenshot -->
+
 ## What students learn
 
 The tutor guides students through a ten-question evidence-to-action workflow:
@@ -40,6 +42,14 @@ The lesson emphasizes that IMU integration drift can shift the post-recovery rea
 - **Safety-aware tutoring:** the digital twin does not claim live access to the robot and reminds students to support the robot and clear the area before physical movement.
 
 The included behavior graph contains 75 nodes, 150 edges, and 125 complete correct paths.
+
+
+## Tech stack
+
+- HTML / CSS / JavaScript (vanilla, no build step)
+- CMU Cognitive Tutor Authoring Tools (CTAT) — example-tracing behavior graph (`.brd`)
+- ROS — IMU stream reference (`rostopic echo /imu_gui`)
+- OpenAI Responses API — optional "robot digital twin" tutor (defaults to `gpt-4o-mini`)
 
 ## Repository structure
 
