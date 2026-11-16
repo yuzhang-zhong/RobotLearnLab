@@ -2,13 +2,15 @@
 
 # RobotLearnLab
 
-### Before a robot stands up, its operator needs to know why.
+**Before a robot stands up, its operator needs to know why.**
 
 An intelligent tutoring system for reasoning from a humanoid robot's pose and IMU evidence to a recovery action, then checking the result.
 
-**CTAT example tracing · 10-question lesson · Optional AI explanations**
+[![CTAT](https://img.shields.io/badge/Tutor-CTAT_example_tracing-2563eb)](FinalBRDs/recovery-from-fall-v10.brd)
+[![Lesson](https://img.shields.io/badge/Lesson-10_questions-0f766e)](#what-students-learn)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-[Run in CTAT](#run-the-tutor-in-ctat) · [Learning flow](#from-observation-to-verification) · [Recovery policy](#recovery-policy) · [Safety and limits](#safety-and-integration-boundaries)
+[Run in CTAT](#run-the-tutor-in-ctat) · [Learning flow](#from-observation-to-verification) · [Recovery policy](#recovery-policy) · [Optional AI](#optional-robot-digital-twin) · [Safety and limits](#safety-and-integration-boundaries)
 
 </div>
 
@@ -46,7 +48,14 @@ The included [behavior graph](FinalBRDs/recovery-from-fall-v10.brd) contains **7
 
 ## What students learn
 
-The tutor guides students through a ten-question evidence-to-action workflow:
+The ten questions follow one evidence-to-action loop:
+
+| Observe | Interpret | Act and verify |
+| --- | --- | --- |
+| Classify the pose and capture IMU evidence | Map pitch to a state and write the blackboard | Select a motion, read fresh evidence, and check the standing band |
+
+<details>
+<summary>All ten learning steps</summary>
 
 1. Observe and classify the robot's pose.
 2. Identify the IMU as the primary fall sensor.
@@ -58,6 +67,8 @@ The tutor guides students through a ten-question evidence-to-action workflow:
 8. Write the interpreted state to the blackboard.
 9. Select the matching recovery motion.
 10. Re-read the robot state and verify recovery using the standing band rather than exact equality with the original sensor reading.
+
+</details>
 
 ## Recovery policy
 

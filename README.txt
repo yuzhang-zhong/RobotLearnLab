@@ -1,4 +1,27 @@
-AINEX FALL RECOVERY LAB V10 - CTAT PACKAGE
+ROBOTLEARNLAB
+============
+AINEX Fall Recovery Lab V10 - CTAT teaching package
+
+Reason from pose and IMU evidence, choose a recovery action, and verify it
+with a fresh sensor reading.
+
+START HERE
+----------
+Illustrated project guide: README.md
+Repository: https://github.com/yuzhang-zhong/RobotLearnLab
+
+1. Keep HTML/ and FinalBRDs/ together at the project root.
+2. Import this V10-only package as a new project in CTAT Authoring Tools.
+3. Open HTML/recovery-from-fall-v10.html.
+4. Follow the observation question and use Hint as needed.
+
+The AI sidebar is optional. This is a supervised teaching prototype, not an
+autonomous robot controller. See the sensor and API-key limitations below.
+
+PACKAGE REFERENCE
+-----------------
+Structure / Typography / Behavior graph / State policy / Sensor limitation
+Digital twin / V10 compatibility / Import notes
 
 Package structure
 -----------------
