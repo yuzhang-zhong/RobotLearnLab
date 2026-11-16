@@ -2,20 +2,16 @@
 
 # RobotLearnLab
 
-**Before a robot stands up, its operator needs to know why.**
+**Learn to diagnose a humanoid robot's fall and verify its recovery.**
 
 An intelligent tutoring system for reasoning from a humanoid robot's pose and IMU evidence to a recovery action, then checking the result.
 
 [![CTAT](https://img.shields.io/badge/Tutor-CTAT_example_tracing-2563eb)](FinalBRDs/recovery-from-fall-v10.brd)
-[![Lesson](https://img.shields.io/badge/Lesson-10_questions-0f766e)](#what-students-learn)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 [Run in CTAT](#run-the-tutor-in-ctat) · [Learning flow](#from-observation-to-verification) · [Recovery policy](#recovery-policy) · [Optional AI](#optional-robot-digital-twin) · [Safety and limits](#safety-and-integration-boundaries)
 
 </div>
-
-<p align="center"><img src="HTML/Assets/ainex-robot.png" width="250" alt="AINEX humanoid robot asset included in the tutoring interface" /></p>
-<p align="center"><sub>Existing AINEX robot asset from the tutor interface, not a new simulation or lesson screenshot.</sub></p>
 
 Built for the **Intelligent Tutoring System (ITS) track at the CMU 2026 LearnLab Summer School**, RobotLearnLab combines a CMU CTAT example-tracing lesson with an optional generative-AI “robot digital twin.” The behavior graph evaluates student steps. The AI sidebar explains reasoning; it does not control lesson progression or directly command the robot.
 
@@ -39,6 +35,9 @@ cd RobotLearnLab
 The HTML explicitly binds to `../FinalBRDs/recovery-from-fall-v10.brd`, so an older `question_file` parameter cannot silently select a previous lesson version. Simply viewing the HTML without the CTAT runtime is not a full tutor test.
 
 ## From observation to verification
+
+<p align="center"><img src="HTML/Assets/ainex-robot.png" width="160" alt="AINEX humanoid robot asset included in the tutoring interface" /></p>
+<p align="center"><sub>Existing AINEX robot asset from the tutor interface, not a new simulation or lesson screenshot.</sub></p>
 
 ![Conceptual learning flow from pose and frozen IMU evidence to classification, blackboard state, recovery choice, and standing-band verification](docs/learning-flow.svg)
 
