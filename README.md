@@ -112,13 +112,11 @@ Model calls may incur API charges. No API key is included in this repository. Th
 
 ## Repository guide and stack
 
-| File / directory | Purpose |
-| --- | --- |
-| [`HTML/recovery-from-fall-v10.html`](HTML/recovery-from-fall-v10.html) | Vanilla HTML lesson and CTAT initialization |
-| [`HTML/Assets/recovery-from-fall-styles-v10.css`](HTML/Assets/recovery-from-fall-styles-v10.css) | Tutor layout and styling |
-| [`HTML/Assets/robot-digital-twin-v10.js`](HTML/Assets/robot-digital-twin-v10.js) | Optional OpenAI Responses API client, default `gpt-4o-mini` |
-| [`FinalBRDs/recovery-from-fall-v10.brd`](FinalBRDs/recovery-from-fall-v10.brd) | CTAT example-tracing graph |
-| [`README.txt`](README.txt) | Package notes, V10 component contracts, and compatibility detail |
+- [`HTML/recovery-from-fall-v10.html`](HTML/recovery-from-fall-v10.html): vanilla HTML lesson and CTAT initialization.
+- [`HTML/Assets/recovery-from-fall-styles-v10.css`](HTML/Assets/recovery-from-fall-styles-v10.css): tutor layout and styling.
+- [`HTML/Assets/robot-digital-twin-v10.js`](HTML/Assets/robot-digital-twin-v10.js): optional OpenAI Responses API client, default `gpt-4o-mini`.
+- [`FinalBRDs/recovery-from-fall-v10.brd`](FinalBRDs/recovery-from-fall-v10.brd): CTAT example-tracing graph.
+- [`README.txt`](README.txt): package notes, V10 component contracts, and compatibility detail.
 
 The lesson references ROS via `rostopic echo /imu_gui`. The HTML/CSS/JavaScript package has no build step. Proprietary font binaries are not redistributed; the page references web-font fallbacks.
 
