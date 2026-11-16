@@ -2,6 +2,8 @@
 
 # RobotLearnLab
 
+**English** · [简体中文](README.zh-CN.md)
+
 **Learn to diagnose a humanoid robot's fall and verify its recovery.**
 
 An intelligent tutoring system for reasoning from a humanoid robot's pose and IMU evidence to a recovery action, then checking the result.
