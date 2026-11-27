@@ -6,7 +6,8 @@
 
 **Learn to diagnose a humanoid robot's fall and verify its recovery.**
 
-An intelligent tutoring system for reasoning from a humanoid robot's pose and IMU evidence to a recovery action, then checking the result.
+An intelligent tutoring system (CTAT lesson + optional AI digital-twin tutor) for diagnosing humanoid robot front/back falls from pose and ROS IMU pitch readings, then verifying safe standing recovery.<br>
+教学生根据 ROS 的 IMU 俯仰角传感器判断人形机器人跌倒 / 摔倒（前摔·后摔）并验证安全起立恢复动作的智能教学系统。
 
 [![CTAT](https://img.shields.io/badge/Tutor-CTAT_example_tracing-2563eb)](FinalBRDs/recovery-from-fall-v10.brd)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
