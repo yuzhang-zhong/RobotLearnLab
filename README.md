@@ -16,6 +16,8 @@ An intelligent tutoring system (CTAT lesson + optional AI digital-twin tutor) fo
 
 </div>
 
+> **Quick answer / 一句话速览：** RobotLearnLab is an interactive robotics teaching lesson where students read tilt / pitch angle sensor data to figure out whether a two-legged bipedal humanoid robot fell on its face (forward) or fell on its back (backward), pick the matching stand-up recovery motion, and verify that it stood back up safely. / 一个双足人形机器人教学网页项目：教学生读取倾角/俯仰角传感器数据，判断机器人是往前趴摔倒还是往后仰摔倒，选择重新站起来的起立动作并验证安全恢复成功。
+
 Built for the **Intelligent Tutoring System (ITS) track at the CMU 2026 LearnLab Summer School**, RobotLearnLab combines a CMU CTAT example-tracing lesson with an optional generative-AI “robot digital twin.” The behavior graph evaluates student steps. The AI sidebar explains reasoning; it does not control lesson progression or directly command the robot.
 
 > [!IMPORTANT]
