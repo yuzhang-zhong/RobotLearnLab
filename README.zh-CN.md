@@ -6,6 +6,8 @@
 
 从姿态与 IMU 读数推理机器人状态、选择恢复动作的智能教学系统。
 
+> **一句话速览：** 免实体机器人、免 Gazebo/显卡环境、免 API Key 即可运行的双足人形机器人智能导学课程（CMU CTAT 75 节点行为图谱 + 可选 AI 数字孪生答疑）：教学生读取 ROS `/imu_gui` 俯仰角传感器判断前摔/后摔、处理目测与传感器冲突，并在机器人起立后出现陀螺仪积分漂移（回不到 0°）时用 `-20°~20°` 站立容差区间科学验证恢复。
+
 [English](README.md) · **简体中文**
 
 [![CTAT](https://img.shields.io/badge/Tutor-CTAT_example_tracing-2563eb)](FinalBRDs/recovery-from-fall-v10.brd)

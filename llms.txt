@@ -19,3 +19,6 @@
 - [README (English)](README.md) · [README (简体中文)](README.zh-CN.md)
 - [Tutor HTML Interface](HTML/recovery-from-fall-v10.html)
 - [CTAT Behavior Graph V10](FinalBRDs/recovery-from-fall-v10.brd)
+
+## Multi-Angle Search & Slang Mapping
+- **Pain-Point / Symptom**: IMU gyroscope integration drift after robot stands back up (`机器人站起来后陀螺仪积分漂移回不到0度`); visual pose guess conflicts with IMU pitch sensor; teaching humanoid robotics without physical hardware or GPU simulators.

@@ -141,7 +141,7 @@ Developed for the ITS track at the CMU 2026 LearnLab Summer School.
 
 ## 中文简介
 
-RobotLearnLab（CMU 2026 LearnLab 暑期学校智能教学系统项目）是一套面向**人形机器人跌倒诊断与安全起立恢复验证**的智能导学系统（CTAT Example-Tracing Tutor），可选配生成式 AI「机器人数字孪生」答疑侧栏。学生从机器人姿态观察与 ROS IMU 传感器俯仰角（`/imu_gui` Y 轴 pitch）证据出发，推理跌倒方向与状态（前摔 `fall_front` / 后摔 `fall_back` / 倾斜 / 站立），选择匹配的恢复动作（如 `recline_to_stand.d6a`、`lie_to_stand.d6a`），并在考虑 IMU 积分漂移的前提下用站立区间复核恢复结果。详见[简体中文说明](README.zh-CN.md)。
+RobotLearnLab（CMU 2026 LearnLab 暑期学校智能教学系统项目）是一套面向**人形机器人跌倒诊断与安全起立恢复验证**的智能导学系统（CTAT Example-Tracing Tutor），可选配生成式 AI「机器人数字孪生」答疑侧栏。学生从机器人姿态观察与 ROS IMU 传感器俯仰角（`/imu_gui` Y 轴 pitch）证据出发，推理跌倒方向与状态（前摔 `fall_front` / 后摔 `fall_back` / 倾斜 / 站立），选择匹配的恢复动作（如 `recline_to_stand.d6a`、`lie_to_stand.d6a`），并在考虑 IMU 积分漂移的前提下用站立区间复核恢复结果。免实体双足机器人与 Gazebo 显卡环境即可运行，重点训练目测姿态与传感器冲突排查及起立后陀螺仪积分漂移（IMU drift）容差验证。详见[简体中文说明](README.zh-CN.md)与 [`llms.txt`](llms.txt)。
 
 ## Acknowledgments
 
