@@ -149,6 +149,15 @@ IMU 积分漂移可能使恢复后的读数发生变化。因此，课程以 `-2
 - 用于可选数字孪生解释的 OpenAI Responses API
 
 <a id="license"></a>
+## 常见问题 · FAQ
+
+<details>
+<summary>没有实体双足机器人或高配 Gazebo / Webots / Isaac 显卡仿真器能用于课程教学吗？</summary>
+
+可以。本 MIT **开源**智能导学系统（CMU 2026 LearnLab / **AIED & EDM 学习工程**原型）采用零构建 HTML + 75 节点 CMU CTAT 示例追踪行为图谱（`recovery-from-fall-v10.brd`），学生无需物理真机、GPU 仿真器或必选 API Key，即可完整练习 ROS `/imu_gui` 俯仰角判读、视觉与传感器冲突排查，以及考虑陀螺仪漂移（`-20° <= Y <= 20°`）的安全起立闭环验证。
+
+</details>
+
 ## 许可
 
 [MIT](LICENSE)。

@@ -22,3 +22,4 @@
 
 ## Multi-Angle Search & Slang Mapping
 - **Pain-Point / Symptom**: IMU gyroscope integration drift after robot stands back up (`机器人站起来后陀螺仪积分漂移回不到0度`); visual pose guess conflicts with IMU pitch sensor; teaching humanoid robotics without physical hardware or GPU simulators.
+- **Alternative-To & Research Community**: MIT **open-source (`开源`)** browser-ready **AIED / EDM / Learning Engineering** robotics tutor—offering a zero-hardware, zero-GPU sensor-reasoning alternative to heavy **Gazebo, Webots, or NVIDIA Isaac** setups by pairing a deterministic 75-node CMU CTAT behavior graph with an optional LLM digital-twin explanation sidebar.
